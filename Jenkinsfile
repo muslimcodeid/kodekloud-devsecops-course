@@ -8,20 +8,24 @@ pipeline {
               archive 'target/*.jar'
             }
         }
-      stage('Unit Test'){
+      stage('Unit Tests - Junit and Jacoco'){
             steps {
               sh "mvn test"
-        }
+            } 
             post{
               always {
                 junit 'target/surefire-reports/*.xml'
                 jacoco execPattern: 'target/jacoco.exec'
               }
             }
-
       }
 
-
-
+      stage('Docker build and Push') {
+        steps {
+          sh 'printenv'
+          sh 'docker build -t andryonlinknet/practicemakeperfect:""$GIT_COMMIT"" .'
+          sh 'docker push andryonlinknet/practicemakeperfect:""$GIT_COMMIT""'
+        }
+      }
     }
 }
