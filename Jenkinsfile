@@ -22,7 +22,7 @@ pipeline {
 
       stage('Docker build and Push') {
         steps {
-          docker.withRegistry('https://registry.hub.docker.com', 'cc47a082-cdaa-4eff-9447-73ffcf4728c1') {
+          docker.withRegistry(['https://registry.hub.docker.com', 'cc47a082-cdaa-4eff-9447-73ffcf4728c1']) {
             sh 'printenv'
             sh 'docker build -t andryonlinknet/practicemakeperfect:""$GIT_COMMIT"" .'
             sh 'docker push andryonlinknet/practicemakeperfect:""$GIT_COMMIT""'
