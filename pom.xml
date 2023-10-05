@@ -71,7 +71,7 @@
 				<dependencies>
 					<dependency>
 						<groupId>org.pitest</groupId>
-						<artifactId>pitest - Junit - Plugin</artifactId>
+						<artifactId>pitest-junit-plugin</artifactId>
 					</dependency>
 				</dependencies>
 				<configuration>
