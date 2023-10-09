@@ -32,10 +32,12 @@ pipeline {
 
       stage('SonarQube Analysis') {
         def mvn = tool 'Default Maven';
-        withSonarQubeEnv() {
-          sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=numericapplication -Dsonar.projectName='numeric application'"
-          }
+        steps {
+          withSonarQubeEnv() {
+            sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=numericapplication -Dsonar.projectName='numeric application'"
+            }
         }
+      }
 
       stage('Docker build and Push') {
         steps {
