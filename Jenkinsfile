@@ -31,10 +31,10 @@ pipeline {
           }
 
       stage('SonarQube Analysis') {
-        def mvn = tool 'Default Maven';
+        def mvn = tool 'devsecops-maven';
         steps {
           withSonarQubeEnv() {
-            sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=numericapplication -Dsonar.projectName='numeric application'"
+             sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.projectName='numeric application'"
             }
         }
       }
