@@ -32,7 +32,7 @@ pipeline {
 
       stage('Sonarqube - SAST') {
         steps {
-             sh "mvn clean verify sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url:http://srv.standbywith.me:8080 -Dsonar.token=sqb_6420b456ce6764b939b73301cdeab818efdbe344"
+             sh "mvn clean verify sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url:http://srv.standbywith.me:8080 -Dsonar.login=sqp_a143d4b26a6758e4489ee8ee5ef7420e95d9b972"
             }
         }
 
